@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Post</title>
+    <link rel="stylesheet" href="/home.css" />
+</head>
+<body style="text-align: center;">
+    <h1>Todo List for Posting</h1>
+    <% for(post of posts){ %>
+        <div>
+            <h3>Username :   <%= post.username %></h3>
+            <h4>Post :  <%= post.post %></h4>
+            <a href="http://localhost:8080/post/<%=post.id%>">Details</a>
+            <a href="http://localhost:8080/post/<%=post.id%>/edit">Edit</a>
+            <form method="post" action="/post/<%= post.id %>?_method=DELETE">
+                <button>Delete</button>
+            </form>
+            
+        </div>
+    <% } %>
+
+    <br><br>
+    <button style="background-color: green;"><a style="color: wheat;" href=<%="http://localhost:8080/post/new"  %>>Create New Post</a></button>
+    
+</body>
+</html>
+
+
+
